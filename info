@@ -1,0 +1,40 @@
+
+Type	What it includes	Pricing
+Input Tokens	history + new message	input rate
+Output Tokens	model's reply	output rate
+
+
+other platforms intergations 
+
+giving the prompt and then grabing the api key error if we got 
+
+
+
+platform connect 
+curl -X 'POST' \
+  'http://127.0.0.1:8000/platform_router/connect' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "user": "1234",
+  "platform": "Google gemini",
+  "model_name": ["Google gemini1", "google gemini2"],
+  "api_key": "123445"
+}'
+Request URL
+http://127.0.0.1:8000/platform_router/connect
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "user": "1234",
+  "platform": "Google gemini",
+  "model_name": [
+    "Google gemini1",
+    "google gemini2"
+  ],
+  "api_key": "123445",
+  "message": "Successfully connected 2 models"
+}
