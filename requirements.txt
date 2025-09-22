@@ -23,7 +23,6 @@ charset-normalizer
 click
 colorama
 Crawl4AI
-cryptography
 cssselect
 curl_cffi
 defusedxml
