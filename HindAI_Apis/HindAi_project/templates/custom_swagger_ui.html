@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css">
+    <title>HindAI API - Swagger UI</title>
+    <style>
+        /* Custom Swagger UI Dark Theme */
+        body {
+            background-color: #1a1a2e;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .swagger-ui {
+            background-color: #1a1a2e;
+            color: #e6e6ff;
+        }
+        
+        .swagger-ui .topbar {
+            background-color: #16213e;
+        }
+        
+        .swagger-ui .info .title,
+        .swagger-ui .info h1,
+        .swagger-ui .info h2,
+        .swagger-ui .info h3,
+        .swagger-ui .info h4,
+        .swagger-ui .info h5 {
+            color: #ff9a3c;
+        }
+        
+        .swagger-ui .scheme-container {
+            background-color: #202040;
+            box-shadow: none;
+            border: 1px solid #4c4c70;
+        }
+        .swagger-ui .markdown p, .swagger-ui .markdown pre, .swagger-ui .renderedMarkdown p, .swagger-ui .renderedMarkdown pre {
+
+            color: white;
+        }
+        .swagger-ui table thead tr td, .swagger-ui table thead tr th {
+
+            color: white;
+        }
+        .swagger-ui .btn {
+            background-color: #3a86ff;
+            color: white;
+            border-color: #3a86ff;
+        }
+        
+        .swagger-ui select {
+            background-color: #2a2a40;
+            color: #e6e6ff;
+            border-color: #4c4c70;
+        }
+        
+        .swagger-ui .opblock-tag {
+            color: #ff9a3c;
+            border-color: #4c4c70;
+        }
+        
+        .swagger-ui .opblock {
+            background-color: #24243e;
+            border-color: #4c4c70;
+        }
+        
+        .swagger-ui .opblock .opblock-summary-operation-id,
+        .swagger-ui .opblock .opblock-summary-path,
+        .swagger-ui .opblock .opblock-summary-path__deprecated {
+            color: #e6e6ff;
+        }
+        
+        .swagger-ui .opblock .opblock-summary-description {
+            color: #b3b3cc;
+        }
+        
+        .swagger-ui input[type=text],
+        .swagger-ui textarea {
+            background-color: #2a2a40;
+            color: #e6e6ff;
+            border-color: #4c4c70;
+        }
+        
+        /* Method colors */
+        .swagger-ui .opblock-get {
+            background-color: rgba(30, 144, 255, 0.1);
+            border-color: #1e90ff;
+        }
+        
+        .swagger-ui .opblock-post {
+            background-color: rgba(73, 204, 144, 0.1);
+            border-color: #49cc90;
+        }
+        
+        .swagger-ui .opblock-put {
+            background-color: rgba(252, 161, 48, 0.1);
+            border-color: #fca130;
+        }
+        
+        .swagger-ui .opblock-delete {
+            background-color: rgba(249, 62, 62, 0.1);
+            border-color: #f93e3e;
+        }
+        
+        /* Response section */
+        .swagger-ui .responses-table {
+            background-color: #2a2a40;
+            color: #e6e6ff;
+        }
+        
+        .swagger-ui .response-col_status {
+            color: #ff9a3c;
+        }
+        .swagger-ui .info {
+            margin: 50px auto;
+            justify-content: center;
+            align-items: center;
+            display: flex
+        ;
+            border: 1px solid gray;
+            padding: 16px;
+            border-radius: 15px;
+        }
+        .swagger-ui .info hgroup.main a {
+            font-size: 12px;
+            display: none;
+        }
+        .title span{
+            display: none;
+        }
+        .swagger-ui .info hgroup.main {
+            margin: 0 0 0px;
+        }
+        .swagger-ui section.models.is-open {
+    padding: 0 0 20px;
+    display: none;
+}
+    </style>
+</head>
+<body>
+    <div id="swagger-ui"></div>
+    <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+    <script>
+        const ui = SwaggerUIBundle({
+            url: '{{ openapi_url }}',
+            dom_id: '#swagger-ui',
+            presets: [
+                SwaggerUIBundle.presets.apis,
+                SwaggerUIBundle.SwaggerUIStandalonePreset
+            ],
+            layout: "BaseLayout",
+            deepLinking: true,
+            syntaxHighlight: {
+                activate: true,
+                theme: "monokai"
+            }
+        });
+    </script>
+</body>
+</html>

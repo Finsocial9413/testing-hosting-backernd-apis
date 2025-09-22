@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ swagger_ui_css }}">
+    <link rel="icon" href="https://fastapi.tiangolo.com/img/favicon.png">
+    <style>
+        /* Custom Swagger UI Theme for HindAI */
+        :root {
+            --background-color: #1a1a2e;  /* Dark blue background */
+            --text-color: #e6e6ff;  /* Light text for better contrast */
+            --heading-color: #ff9a3c;  /* Orange accents for headings */
+            --link-color: #4da6ff;  /* Bright blue for links */
+            --border-color: #4c4c70;  /* Subtle borders */
+            --input-background: #2a2a40;  /* Slightly lighter background for inputs */
+            --button-color: #3a86ff;  /* Button color */
+            --button-text: white;  /* Button text color */
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .swagger-ui {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        .swagger-ui .topbar {
+            background-color: #16213e;  /* Darker blue for the top bar */
+        }
+        
+        .swagger-ui .info .title, 
+        .swagger-ui .info h1, 
+        .swagger-ui .info h2, 
+        .swagger-ui .info h3, 
+        .swagger-ui .info h4, 
+        .swagger-ui .info h5 {
+            color: var(--heading-color) !important;
+        }
+        
+        .swagger-ui .scheme-container {
+            background-color: #202040 !important;
+            box-shadow: none !important;
+            border: 1px solid var(--border-color);
+        }
+        
+        .swagger-ui .btn {
+            background-color: var(--button-color) !important;
+            color: var(--button-text) !important;
+            border-color: var(--button-color) !important;
+        }
+        
+        .swagger-ui select {
+            background-color: var(--input-background) !important;
+            color: var(--text-color) !important;
+            border-color: var(--border-color) !important;
+        }
+        
+        .swagger-ui .opblock-tag {
+            color: var(--heading-color) !important;
+            border-color: var(--border-color) !important;
+        }
+        
+        .swagger-ui .opblock {
+            background-color: #24243e !important;
+            border-color: var(--border-color) !important;
+        }
+        
+        .swagger-ui .opblock .opblock-summary-operation-id, 
+        .swagger-ui .opblock .opblock-summary-path, 
+        .swagger-ui .opblock .opblock-summary-path__deprecated {
+            color: var(--text-color) !important;
+        }
+        
+        .swagger-ui .opblock .opblock-summary-description {
+            color: #b3b3cc !important;  /* Slightly muted description text */
+        }
+        
+        .swagger-ui input[type=text], 
+        .swagger-ui textarea {
+            background-color: var(--input-background) !important;
+            color: var(--text-color) !important;
+            border-color: var(--border-color) !important;
+        }
+        
+        /* Method colors */
+        .swagger-ui .opblock-get {
+            background-color: rgba(30, 144, 255, 0.1) !important;  /* Dodge Blue */
+            border-color: #1e90ff !important;
+        }
+        
+        .swagger-ui .opblock-post {
+            background-color: rgba(73, 204, 144, 0.1) !important;  /* Green */
+            border-color: #49cc90 !important;
+        }
+        
+        .swagger-ui .opblock-put {
+            background-color: rgba(252, 161, 48, 0.1) !important;  /* Orange */
+            border-color: #fca130 !important;
+        }
+        
+        .swagger-ui .opblock-delete {
+            background-color: rgba(249, 62, 62, 0.1) !important;  /* Red */
+            border-color: #f93e3e !important;
+        }
+        
+        /* Response section */
+        .swagger-ui .responses-table {
+            background-color: var(--input-background) !important;
+            color: var(--text-color) !important;
+        }
+        
+        .swagger-ui .response-col_status {
+            color: var(--heading-color) !important;
+        }
+        
+        /* Models */
+        .swagger-ui section.models {
+            background-color: #202040 !important;
+            border-color: var(--border-color) !important;
+        }
+        
+        .swagger-ui section.models h4 {
+            color: var(--heading-color) !important;
+        }
+        
+        /* Links */
+        .swagger-ui a {
+            color: var(--link-color) !important;
+        }
+        
+        /* JSON editor and code blocks */
+        .swagger-ui .highlight-code {
+            background-color: #1e1e3f !important;
+        }
+        
+        .swagger-ui .microlight {
+            color: #f8f8f2 !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="swagger-ui"></div>
+    <script src="{{ swagger_ui_bundle_js }}"></script>
+    <script src="{{ swagger_ui_standalone_preset_js }}"></script>
+    <script>
+        window.onload = function() {
+            const ui = SwaggerUIBundle({
+                url: "{{ openapi_url }}",
+                dom_id: '#swagger-ui',
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIStandalonePreset
+                ],
+                layout: "BaseLayout",
+                deepLinking: true,
+                showExtensions: true,
+                showCommonExtensions: true,
+                {% if oauth2_redirect_url %}
+                oauth2RedirectUrl: "{{ oauth2_redirect_url }}",
+                {% endif %}
+                syntaxHighlight: {
+                    activate: true,
+                    theme: "obsidian"
+                }
+            })
+            {% if config_oauth2_init %}
+            ui.initOAuth({{ config_oauth2_init | safe }})
+            {% endif %}
+        }
+    </script>
+</body>
+</html>
