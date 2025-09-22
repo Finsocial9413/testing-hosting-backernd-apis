@@ -1,0 +1,140 @@
+def routes_Database():
+    base_routes = [
+        ('Home', ['home', 'start', 'main']),
+        ('HomeLoggedIn', ['home', 'dashboard', 'main']),
+        ('Dashboard', ['dashboard', 'overview', 'main']),
+        ('Login', ['login', 'sign in', 'authenticate']),
+        ('Register', ['register', 'sign up', 'create account']),
+        ('Forgot Password', ['forgot password', 'reset']),
+        ('Assets', ['assets', 'wallet', 'portfolio']),
+        ('Deposit', ['deposit', 'add funds']),
+        ('Rewards Hub', ['rewards', 'bonuses']),
+        ('Buy Crypto', ['buy', 'crypto', 'fiat']),
+        ('Limit Buy', ['limit buy', 'limit order']),
+        ('Recurring Buy', ['recurring buy', 'repeat']),
+        ('Deposit Buy', ['deposit buy']),
+        ('Withdraw Buy', ['withdraw', 'cash out']),
+        ('USDM Futures', ['futures', 'usd-m']),
+        ('COINM Futures', ['futures', 'coin-m']),
+        ('Options', ['options', 'contracts']),
+        ('Spot Trading', ['spot', 'trade']),
+        ('Margin Trading', ['margin', 'leverage']),
+        ('Convert', ['convert', 'swap']),
+        ('P2P', ['p2p', 'peer']),
+        ('Bot', ['bot', 'auto trade']),
+        ('Copy Trading', ['copy trading']),
+        ('API Page', ['api', 'developers']),
+        ('Alpha', ['alpha', 'tools']),
+        ('Earn', ['earn', 'yield']),
+        ('Overview', ['earn', 'overview']),
+        ('Simple Earn', ['simple earn']),
+        ('What is Simple Earn', ['simple earn']),
+        ('Advanced Earns', ['advanced earn']),
+        ('What is Advanced Earns', ['advanced earn']),
+        ('Loans', ['loans', 'borrow']),
+        ('What is earn', ['earn', 'modal', 'overview']),
+        ('Markets', ['markets', 'prices']),
+        ('Verify Now', ['verify', 'account verification']),
+        ('Trade', ['Trade']),
+        ('Complete Verification', ['verify', 'complete verification']),
+        ('Deposit Funds', ['Deposit', 'deposit funds']),
+        ('View All Markets', ['markets', 'view all markets']),
+        ('Contact Support', ['support', 'contact support']),
+        ('Square', ['square']),
+        ('Academy (Learn & Earn)', ['academy', 'learn & earn']),
+        ('Blog', ['blog', 'square blog']),
+        ('Research', ['research', 'square research']),
+        ('Verify', ['verify', 'kyc', 'identity check', 'verification', 'id upload', 'account verification']),
+        ('Verification', ['verification', 'documents', 'proof', 'compliance', 'id verification']),
+        ('Account Statement', ['statement', 'account', 'summary', 'record']),
+        ('Transaction History', ['transactions', 'history', 'payments', 'logs']),
+        ('Funding', ['funding', 'deposit', 'withdrawal', 'records']),
+        ('Referral', ['referral', 'invite', 'refer']),
+        ('Settings', ['settings', 'preferences', 'account settings']),
+        ('VIP Institutional', ['vip', 'institutional', 'corporate']),
+        ('Affiliate', ['affiliate', 'commission', 'partner']),
+        ('Referrals', ['referrals', 'invitees', 'connections']),
+        ('Launchpool', ['launchpool', 'staking', 'new tokens']),
+        ('Megadrop', ['megadrop', 'airdrop', 'rewards']),
+        ('Miningpool', ['mining', 'miningpool', 'hashrate']),
+        ('NFT', ['nft', 'collectibles', 'art']),
+        ('Pay', ['pay', 'payments', 'transactions']),
+        ('Fan Token', ['fan token', 'fan', 'token']),
+        ('Finsocial Wallet', ['wallet', 'finsocial', 'store']),
+        ('Bnb Chain', ['bnb', 'chain', 'blockchain']),
+        ('Charity', ['charity', 'donate', 'causes']),
+        ('Travel', ['travel', 'crypto travel', 'bookings']),
+        ('Toggle Theme', ['toggle theme', 'theme', 'dark mode', 'light mode'])
+    ]
+
+    theme_keywords = ['theme', 'dark mode', 'light mode']
+    dynamic_theme_routes = []
+    for route, _ in base_routes:
+        route_slug = route.lower().replace(" ", "-")
+        dynamic_theme_routes.append((f'{route_slug}/toggle-theme', theme_keywords))
+
+    return base_routes + dynamic_theme_routes
+
+
+def buttons_info():
+    return {
+        'Verify Now': 'Verify Now',
+        'Deposit': 'Deposit',
+        'Trade': 'Trade',
+        'Complete Verification': 'Complete Verification',
+        'Deposit Funds': 'Deposit Funds',
+        'View All Markets': 'View All Markets',
+        'Contact Support': 'Contact Support',
+
+        'Login': 'Login',
+        'Register': 'Register',
+        'Forgot Password': 'Forgot Password',
+
+        'Home': 'Home',
+        'Dashboard': 'Dashboard',
+        'Markets': 'Markets',
+        'Support': 'Support',
+
+        'Spot': 'Spot',
+        'Margin': 'Margin',
+        'Convert': 'Convert',
+        'P2P': 'P2P',
+        'Bots': 'Bots',
+        'Copy Trading': 'Copy Trading',
+        'API': 'API',
+        'Alpha': 'Alpha',
+
+        'USD-M Futures': 'USD-M Futures',
+        'COIN-M Futures': 'COIN-M Futures',
+        'Options': 'Options',
+
+        'Earn': 'Earn',
+        'Overview': 'Overview',
+        'Simple Earn': 'Simple Earn',
+        'What is Simple Earn': 'What is Simple Earn',
+        'Advanced Earns': 'Advanced Earns',
+        'What is Advanced Earns': 'What is Advanced Earns',
+        'Loans': 'Loans',
+        'What is earn': 'What is earn',
+
+        'Buy Crypto': 'Buy Crypto',
+        'Limit Buy': 'Limit Buy',
+        'Recurring Buy': 'Recurring Buy',
+        'Deposit Buy': 'Deposit Buy',
+        'Withdraw Buy': 'Withdraw Buy',
+
+        'Square': 'Square',
+        'Academy': 'Academy',
+        'Blog': 'Blog',
+        'Research': 'Research',
+
+        'NFT': 'NFT',
+        'Pay': 'Pay',
+        'Fan Token': 'Fan Token',
+        'Finsocial Wallet': 'Finsocial Wallet',
+        'Bnb Chain': 'Bnb Chain',
+        'Charity': 'Charity',
+        'Travel': 'Travel',
+
+        'Toggle Theme': 'Toggle Theme'
+    }
