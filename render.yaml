@@ -6,4 +6,4 @@ services:
     plan: free
     autoDeploy: false
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    startCommand: cd HindAI_Apis/HindAi_project && uvicorn HindAi_project.asgi:application --host 0.0.0.0 --port $PORT
