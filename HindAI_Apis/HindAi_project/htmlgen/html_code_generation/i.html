@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Can I Help You?</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Dark Mode Background */
+            color: #f0f0f0; /* Light Text */
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #1e1e1e;
+            padding: 1rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h1, h2 {
+            color: #ff9900; /* Accent Color */
+        }
+
+        /* Download Button Styles */
+        .download-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .download-button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #1e1e1e;
+            padding: 1rem;
+            text-align: center;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>How Can I Help You?</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Hello there!</h2>
+            <p>How can I help you today?</p>
+        </section>
+
+        <section>
+            <button class="download-button" onclick="downloadWebpage()">Download Webpage</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 HindAI developed by the Finsocial Digital Systems.</p>
+    </footer>
+
+    <script>
+        function downloadWebpage() {
+            var element = document.documentElement;
+            var html = element.outerHTML;
+
+            var blob = new Blob([html], {type: "text/html"});
+            var url = URL.createObjectURL(blob);
+
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = "webpage.html";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+
+</body>
+</html>
